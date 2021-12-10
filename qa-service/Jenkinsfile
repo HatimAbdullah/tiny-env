@@ -1,0 +1,116 @@
+pipeline {
+  agent {
+   kubernetes {
+      yaml """
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: jenkins
+  labels:
+    service_name: qa-service
+    service_type: REST
+spec:
+  containers:
+  - name: dnd
+    image: docker:latest
+    command: 
+    - cat
+    tty: true
+    volumeMounts: 
+    - mountPath: /var/run/docker.sock
+      name: docker-sock
+    - name: relic
+      mountPath: /root/.relic
+      readOnly: true
+  - name: kubectl
+    image: bryandollery/terraform-packer-aws-alpine
+    command:
+    - cat
+    tty: true
+  volumes:
+  - name: docker-sock
+    hostPath:
+      path: /var/run/docker.sock  
+      type: Socket
+    volumes:
+  - name: relic
+    secret:
+      secretName: docker-token
+"""
+  }
+}
+  environment {
+    DOCKER_NAMESPACE = 'lordblackfish'
+    SERVICE_NAME = 'qa-service'
+   }
+   stages {
+      stage("Detect") {
+          steps {
+             
+            dir(env.SERVICE_NAME) {
+	    /*
+               sh 'DIFF=$(git diff --name-only $GIT_COMMIT $GIT_PREVIOUS_SUCCESSFUL_COMMIT | grep $SERVICE_NAME | wc -l)'
+               sh 'if [[ $DIFF -gt 0 ]]'
+               sh 'then'
+               sh "echo 'detcted changes, proceeding with build'"
+               sh 'else'
+	        sh "echo 'no detcted changes, skipping build'"
+               sh 'fi'
+	    */
+            script {
+
+                def strCount = sh(returnStdout: true, script: "git diff --name-only ${env.GIT_COMMIT} ${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT} | grep ${env.SERVICE_NAME} | wc -l").trim()
+                if(strCount=="0") {
+                    echo "no detcted changes, skipping build"
+                    env.CONTINUE_BUILD = false
+                } else {
+                    echo "detcted changes, proceeding with build"
+                    env.CONTINUE_BUILD = true
+                }
+            }
+        }
+              
+          }
+      }
+    
+    stage("Build") {
+	when { environment name: 'CONTINUE_BUILD', value: 'true' }
+          steps {
+              container('dnd') {
+                  sh '''
+                      cd $SERVICE_NAME
+                      docker build --tag $DOCKER_NAMESPACE/$SERVICE_NAME:$BUILD_NUMBER .
+                  '''
+              }
+          }
+      }
+      stage("Release") {
+	when { environment name: 'CONTINUE_BUILD', value: 'true' }
+          steps {
+              container('dnd') {
+                  sh '''
+                      cat /root/.relic/token | docker login -u lordblackfish --password-stdin
+                      docker push $DOCKER_NAMESPACE/$SERVICE_NAME:$BUILD_NUMBER
+                  '''
+              }
+          }
+      }
+
+      stage("Deploy") {
+	when { environment name: 'CONTINUE_BUILD', value: 'true' }
+          steps {
+              container('kubectl') {
+                  sh '''
+		      cd $SERVICE_NAME
+		      sed -i 's+version-number+'"$BUILD_NUMBER"'+g' deploy.yaml
+		      kubectl apply -f namespace.yaml 2> /dev/null
+                      kubectl apply -f deploy.yaml -f service.yaml -f ingress.yaml
+                  '''
+              }
+          }
+      }
+
+
+
+  }
+}
