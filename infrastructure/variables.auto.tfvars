@@ -1,0 +1,5 @@
+name             = "mars"
+key_name         = "sandbox-key"
+private_key_path = "./ssh/id_rsa"
+public_key_path  = "./ssh/id_rsa.pub"
+instance_type    = "t2.xlarge"
