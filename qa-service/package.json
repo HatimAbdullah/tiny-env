@@ -6,6 +6,7 @@
   "license": "ISC",
   "scripts": {
     "start": "cross-env NODE_ENV=production node dist/server.js",
+    "quick": "ts-node src/server.ts",
     "dev": "cross-env NODE_ENV=development nodemon",
     "build": "tsc && npx tsc-alias",
     "test": "jest --forceExit --detectOpenHandles",
