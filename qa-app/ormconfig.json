@@ -1,0 +1,13 @@
+{
+    "type": "postgres",
+    "host": "db",
+    "port": 5432,
+    "username": "fish",
+    "password": "goodfucklikeman",
+    "database": "qadb",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+       "src/models/**/*.ts"
+    ]
+ }
