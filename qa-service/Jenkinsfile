@@ -89,7 +89,7 @@ spec:
           steps {
               container('dnd') {
                   sh '''
-                      cat /root/.relic/token | docker login -u lordblackfish --password-stdin
+                      cat /root/.relic/token-secret | docker login -u lordblackfish --password-stdin
                       docker push $DOCKER_NAMESPACE/$SERVICE_NAME:$BUILD_NUMBER
                   '''
               }
