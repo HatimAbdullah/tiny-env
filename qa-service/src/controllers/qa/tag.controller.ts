@@ -1,9 +1,9 @@
 import { Controller, Req, Body, Post, UseBefore, HttpCode, Res, Get, Param, Put, Delete } from 'routing-controllers';
-import { validationMiddleware } from '@middlewares/validation.middleware';
+import { validationMiddleware } from '../../middlewares/validation.middleware';
 import { OpenAPI } from 'routing-controllers-openapi';
-import TagService from '@/services/tag.service';
-import { CreateTagDto, GetAllTagsDto, UpdatedTagDto } from '@/dtos/tag.dto';
-import { Tag } from '@/models/qa/tag.model';
+import TagService from '../../services/tag.service';
+import { CreateTagDto, GetAllTagsDto, UpdatedTagDto } from '../../dtos/tag.dto';
+import { Tag } from '../../models/qa/tag.model';
 
 @Controller()
 export class TagsController {

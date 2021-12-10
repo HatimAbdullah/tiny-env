@@ -1,9 +1,9 @@
 import { Response } from 'express';
 import { Controller, Req, Body, Post, UseBefore, HttpCode, Res, Get, Param, Put, Delete } from 'routing-controllers';
-import { validationMiddleware } from '@middlewares/validation.middleware';
-import QuestionService from '@services/question.service';
-import { CreateQuestionDto, UpdatedQuestionDto, GetAllQuestionDto } from '@/dtos/question.dto';
-import { Question } from '@/models/qa/question.model';
+import { validationMiddleware } from '../../middlewares/validation.middleware';
+import QuestionService from '../../services/question.service';
+import { CreateQuestionDto, UpdatedQuestionDto, GetAllQuestionDto } from '../../dtos/question.dto';
+import { Question } from '../../models/qa/question.model';
 import { OpenAPI } from 'routing-controllers-openapi';
 
 @Controller()

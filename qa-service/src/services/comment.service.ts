@@ -1,9 +1,9 @@
-import { HttpException } from '@exceptions/HttpException';
-import { isEmpty } from '@utils/util';
-import { logger } from '@/utils/logger';
-import { Commentable } from '@/models/qa/commentable.model';
-import { Comment } from '@/models/qa/comment.model';
-import { CreateCommentDto, UpdatedCommentDto } from '@/dtos/comment.dto';
+import { HttpException } from '../exceptions/HttpException';
+import { isEmpty } from '../utils/util';
+import { logger } from '../utils/logger';
+import { Commentable } from '../models/qa/commentable.model';
+import { Comment } from '../models/qa/comment.model';
+import { CreateCommentDto, UpdatedCommentDto } from '../dtos/comment.dto';
 
 class CommentService {
 

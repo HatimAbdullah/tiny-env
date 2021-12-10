@@ -1,9 +1,9 @@
 import { Controller, Req, Body, Post, UseBefore, HttpCode, Res, Get, Param, Put, Delete } from 'routing-controllers';
-import { validationMiddleware } from '@middlewares/validation.middleware';
-import AnswerService from '@services/answer.service';
+import { validationMiddleware } from '../../middlewares/validation.middleware';
+import AnswerService from '../../services/answer.service';
 import { OpenAPI } from 'routing-controllers-openapi';
-import { Answer } from '@/models/qa/answer.model';
-import { CreateAnswerDto, UpdatedAnswerDto } from '@/dtos/answer.dto';
+import { Answer } from '../../models/qa/answer.model';
+import { CreateAnswerDto, UpdatedAnswerDto } from '../../dtos/answer.dto';
 
 @Controller()
 export class AnswersController {

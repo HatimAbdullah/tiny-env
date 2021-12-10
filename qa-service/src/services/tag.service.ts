@@ -1,8 +1,8 @@
-import { HttpException } from '@exceptions/HttpException';
-import { isEmpty } from '@utils/util';
-import { logger } from '@/utils/logger';
-import { Tag } from '@/models/qa/tag.model';
-import { CreateTagDto, GetAllTagsDto, UpdatedTagDto } from '@/dtos/tag.dto';
+import { HttpException } from '../exceptions/HttpException';
+import { isEmpty } from '../utils/util';
+import { logger } from '../utils/logger';
+import { Tag } from '../models/qa/tag.model';
+import { CreateTagDto, GetAllTagsDto, UpdatedTagDto } from '../dtos/tag.dto';
 
 class TagService {
 

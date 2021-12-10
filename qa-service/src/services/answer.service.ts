@@ -1,10 +1,10 @@
-import { HttpException } from '@exceptions/HttpException';
-import { isEmpty } from '@utils/util';
-import { Question } from '@/models/qa/question.model';
-import { logger } from '@/utils/logger';
-import { Commentable } from '@/models/qa/commentable.model';
-import { Answer } from '@/models/qa/answer.model';
-import { CreateAnswerDto, UpdatedAnswerDto } from '@/dtos/answer.dto';
+import { HttpException } from '../exceptions/HttpException';
+import { isEmpty } from '../utils/util';
+import { Question } from '../models/qa/question.model';
+import { logger } from '../utils/logger';
+import { Commentable } from '../models/qa/commentable.model';
+import { Answer } from '../models/qa/answer.model';
+import { CreateAnswerDto, UpdatedAnswerDto } from '../dtos/answer.dto';
 
 class AnswerService {
 

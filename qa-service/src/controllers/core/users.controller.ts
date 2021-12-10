@@ -1,9 +1,9 @@
 import { Controller, Param, Body, Get, Post, Put, Delete, HttpCode, UseBefore } from 'routing-controllers';
 import { OpenAPI } from 'routing-controllers-openapi';
-import { UpdatedUserDto } from '@dtos/users.dto';
-import userService from '@services/users.service';
-import { validationMiddleware } from '@middlewares/validation.middleware';
-import { User } from '@/models/core/users.model';
+import { UpdatedUserDto } from '../../dtos/users.dto';
+import userService from '../../services/users.service';
+import { validationMiddleware } from '../../middlewares/validation.middleware';
+import { User } from '../../models/core/users.model';
 
 @Controller()
 export class UsersController {

@@ -1,13 +1,13 @@
 import { Controller, Req, Body, Post, UseBefore, HttpCode, Res, Get, Param, Put, Delete } from 'routing-controllers';
 import { validationMiddleware } from '@middlewares/validation.middleware';
-import CommentService from '@services/comment.service';
+import CommentService from '../../services/comment.service';
 import { OpenAPI } from 'routing-controllers-openapi';
-import { logger } from '@/utils/logger';
-import { HttpException } from '@/exceptions/HttpException';
-import { Question } from '@/models/qa/question.model';
-import { Comment } from '@/models/qa/comment.model';
-import { CreateCommentDto, UpdatedCommentDto } from '@/dtos/comment.dto';
-import { Answer } from '@/models/qa/answer.model';
+import { logger } from '../../utils/logger';
+import { HttpException } from '../../exceptions/HttpException';
+import { Question } from '../../models/qa/question.model';
+import { Comment } from '../../models/qa/comment.model';
+import { CreateCommentDto, UpdatedCommentDto } from '../../dtos/comment.dto';
+import { Answer } from '../../models/qa/answer.model';
 
 @Controller()
 export class CommentsController {

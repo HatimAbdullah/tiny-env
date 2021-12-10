@@ -1,6 +1,5 @@
 import {Entity, BaseEntity, Column, PrimaryGeneratedColumn, JoinColumn, OneToMany, OneToOne, JoinTable, ManyToMany} from "typeorm";
 import { Answer } from "./answer.model";
-import { Comment } from "./comment.model"
 import { Commentable } from "./commentable.model";
 import { Tag } from "./tag.model";
 @Entity()
