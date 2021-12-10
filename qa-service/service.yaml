@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: qa-service
+  namespace: prod
+spec:
+  selector:
+    name: qa
+  ports:
+    - port: 80
+      targetPort: 3000
