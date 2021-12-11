@@ -16,9 +16,9 @@ spec:
       containers:
       - name: qa
         image: lordblackfish/qa-service:version-tag
-        envFrom:
-        - configMapRef:
-            name: qa-config
+        # envFrom:
+        # - configMapRef:
+        #     name: qa-config
         resources:
           limits:
             cpu: 300m
