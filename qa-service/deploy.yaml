@@ -16,6 +16,9 @@ spec:
       containers:
       - name: qa
         image: lordblackfish/qa-service:version-tag
+        volumeMounts:
+        - name: config-volume
+          mountPath: /app/.env.production
         resources:
           limits:
             cpu: 300m
@@ -28,10 +31,10 @@ spec:
         securityContext:
           runAsNonRoot: true
           runAsUser: 10001
-          #capabilities:
-          #  drop:
-          #    - all
-          readOnlyRootFilesystem: false
+          capabilities:
+            drop:
+              - all
+          readOnlyRootFilesystem: true
         livenessProbe:
           httpGet:
             path: /
@@ -44,3 +47,8 @@ spec:
             port: 3000
           initialDelaySeconds: 30
           periodSeconds: 3
+
+      volumes:
+        - name: config-volume
+        configMap:
+        name: qa-config
