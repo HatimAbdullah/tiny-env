@@ -94,7 +94,7 @@ spec:
               container('kubectl') {
                   sh '''
 		                cd $SERVICE_NAME
-		                sed -i 's+version-tag+'"$BUILD_NUMBER"'+g' deploy.yaml
+		                sed -i 's+version-tag+'"$BUILD_NUMBER"'+g' k8s/app/deploy.yaml
                     kubectl apply -f k8s/app/deploy.yaml -f k8s/app/service.yaml -f k8s/app/ingress.yaml
                   '''
               }
