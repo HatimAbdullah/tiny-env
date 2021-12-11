@@ -1,0 +1,14 @@
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: jenkins-cd-binding
+  namespace: bad-app
+subjects:
+  - kind: ServiceAccount
+    name: default
+    apiGroup: ""
+    namespace: jenkins
+roleRef:
+    kind: ClusterRole
+    name: jenkins-cd
+    apiGroup: ""
