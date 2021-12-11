@@ -1,5 +1,4 @@
-import {Entity, BaseEntity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany, OneToOne} from "typeorm";
-import { Answer } from "./answer.model";
+import {Entity, BaseEntity, PrimaryGeneratedColumn, OneToMany} from "typeorm";
 import { Comment } from "./comment.model"
 
 @Entity()
