@@ -35,7 +35,6 @@ spec:
             drop:
               - all
             add: ["NET_ADMIN", "SYS_TIME"]
-          readOnlyRootFilesystem: true
         livenessProbe:
           httpGet:
             path: /
