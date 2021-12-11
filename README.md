@@ -5,7 +5,7 @@ this repo contains four different component which i will break down below. they 
 
 ### qa-service
 
-a service that allows the user to submit question and answer them. a more descriptive postman collection is is included under the following path:
+a service that allows the user to submit question and answer them. a more descriptive postman collection is is included under the following path: qa-service/qa-app.postman_collection
 ### base image
 
 a service that creates a sandbox amazon machine image prepared with an immutable behavior to serve k3d (rancher's k8s distribution). it is used as the AMI for the environment's computing instance.
