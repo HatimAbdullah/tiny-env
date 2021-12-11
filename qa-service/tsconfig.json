@@ -15,7 +15,7 @@
     "declaration": true,
     "outDir": "./dist",
     "allowJs": true,
-    "noEmit": true,
+    "noEmit": false,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "importHelpers": true,
