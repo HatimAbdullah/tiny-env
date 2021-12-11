@@ -7,5 +7,5 @@ spec:
   selector:
     name: qa
   ports:
-    - port: 80
+    - port: 3000
       targetPort: 3000
