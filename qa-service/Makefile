@@ -2,5 +2,5 @@ build:
 	docker build -t ${tag} .
 clean:
 	docker rmi -f ${tag}
-runi:
+run:
 	docker run -d -p ${port}:${port} --name ${name} ${tag}
