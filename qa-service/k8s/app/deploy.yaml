@@ -16,6 +16,9 @@ spec:
       containers:
       - name: qa
         image: lordblackfish/qa-service:version-tag
+        env:
+        - name: PORT
+          value: 3000
         # envFrom:
         # - configMapRef:
         #     name: qa-config
