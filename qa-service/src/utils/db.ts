@@ -2,7 +2,8 @@ import { Connection, createConnection } from 'typeorm';
 
 const initializeDB = async (): Promise<void> => {
   try {
-    await createConnection();
+    const conn: Connection = await createConnection();
+    await conn.synchronize();
     console.log('Database successfully initialized');
   } catch (error) {
     console.log(`Database failed to connect ${error.message}`);

@@ -11,6 +11,8 @@ a service that allows the user to submit question and answer them. a more descri
 a service that creates a sandbox amazon machine image prepared with an immutable behavior to serve k3d (rancher's k8s distribution). it is used as the AMI for the environment's computing instance.
 ### infrastructure
 
+infrastructure as code using terraform is created under this directory to launch all the needed resources to aws.
 ### cluster
 
+all the cluster related tools and resources are listed under this directory such as CI/CD
 # live env
