@@ -48,15 +48,7 @@ spec:
           steps {
              
             dir(env.SERVICE_NAME) {
-	    /*
-               sh 'DIFF=$(git diff --name-only $GIT_COMMIT $GIT_PREVIOUS_SUCCESSFUL_COMMIT | grep $SERVICE_NAME | wc -l)'
-               sh 'if [[ $DIFF -gt 0 ]]'
-               sh 'then'
-               sh "echo 'detcted changes, proceeding with build'"
-               sh 'else'
-	        sh "echo 'no detcted changes, skipping build'"
-               sh 'fi'
-	    */
+
             script {
 
                 def strCount = sh(returnStdout: true, script: "git diff --name-only ${env.GIT_COMMIT} ${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT} | grep ${env.SERVICE_NAME} | wc -l").trim()
