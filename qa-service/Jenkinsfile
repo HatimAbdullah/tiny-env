@@ -71,7 +71,7 @@ spec:
               container('dnd') {
                   sh '''
                       cd $SERVICE_NAME
-                      docker build --target production-build-stage --tag $DOCKER_NAMESPACE/$SERVICE_NAME:$BUILD_NUMBER .
+                      docker build --target development-build-stage --tag $DOCKER_NAMESPACE/$SERVICE_NAME:$BUILD_NUMBER .
                   '''
               }
           }
