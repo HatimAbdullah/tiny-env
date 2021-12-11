@@ -1,6 +1,6 @@
 # Description
 
-this repo contains four different component which i will break down below. they serve to create an orchestrated and automated environment for a Q/A application.
+this repo contains four different component which i will break down below. they serve to create an orchestrated and automated environment for a Q/A application. using k3d, docker, and jenkins.
 ## Break Down
 
 ### qa-service
