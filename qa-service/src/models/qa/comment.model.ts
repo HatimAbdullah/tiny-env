@@ -1,7 +1,7 @@
 import {Entity, BaseEntity, Column, PrimaryGeneratedColumn, JoinColumn, ManyToOne} from "typeorm";
 import { Commentable } from "./commentable.model";
 
-@Entity()
+@Entity({name: "comment"})
 export class Comment extends BaseEntity {
 
     @PrimaryGeneratedColumn()

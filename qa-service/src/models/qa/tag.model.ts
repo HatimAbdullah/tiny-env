@@ -1,7 +1,7 @@
 import {Entity, BaseEntity, Column, PrimaryGeneratedColumn, JoinTable, ManyToMany} from "typeorm";
 import { Question } from "./question.model";
 
-@Entity()
+@Entity({name: "tag"})
 export class Tag extends BaseEntity {
 
     @PrimaryGeneratedColumn()

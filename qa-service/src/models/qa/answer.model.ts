@@ -2,7 +2,7 @@ import {Entity, BaseEntity, Column, PrimaryGeneratedColumn, JoinColumn, OneToOne
 import { Commentable } from "./commentable.model";
 import { Question } from "./question.model";
 
-@Entity()
+@Entity({name: "answer"})
 export class Answer extends BaseEntity {
 
     @PrimaryGeneratedColumn()

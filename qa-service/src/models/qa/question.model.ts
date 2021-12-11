@@ -2,7 +2,7 @@ import {Entity, BaseEntity, Column, PrimaryGeneratedColumn, JoinColumn, OneToMan
 import { Answer } from "./answer.model";
 import { Commentable } from "./commentable.model";
 import { Tag } from "./tag.model";
-@Entity()
+@Entity({name: "question"})
 export class Question extends BaseEntity {
 
     @PrimaryGeneratedColumn()
