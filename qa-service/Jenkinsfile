@@ -48,9 +48,7 @@ spec:
           steps {
              
             dir(env.SERVICE_NAME) {
-
             script {
-
                 def strCount = sh(returnStdout: true, script: "git diff --name-only ${env.GIT_COMMIT} ${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT} | grep ${env.SERVICE_NAME} | wc -l").trim()
                 if(strCount=="0") {
                     echo "no detcted changes, skipping build"
