@@ -30,10 +30,11 @@ spec:
         - containerPort: 3000
         securityContext:
           runAsNonRoot: true
-          runAsUser: 10001
+          runAsUser: 1000
           capabilities:
             drop:
               - all
+            add: ["NET_ADMIN", "SYS_TIME"]
           readOnlyRootFilesystem: true
         livenessProbe:
           httpGet:
