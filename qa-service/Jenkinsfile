@@ -95,7 +95,7 @@ spec:
                   sh '''
 		                cd $SERVICE_NAME
 		                sed -i 's+version-tag+'"$BUILD_NUMBER"'+g' deploy.yaml
-                    kubectl apply -f deploy.yaml -f service.yaml -f ingress.yaml
+                    kubectl apply -f k8s/app/deploy.yaml -f k8s/app/service.yaml -f k8s/app/ingress.yaml
                   '''
               }
           }
