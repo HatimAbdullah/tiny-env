@@ -1,4 +1,4 @@
-import { Controller, Req, Body, Post, UseBefore, HttpCode, Res, Get, Param, Put, Delete } from 'routing-controllers';
+import { Controller, Body, Post, UseBefore, HttpCode, Get, Param, Put, Delete } from 'routing-controllers';
 import { validationMiddleware } from '../../middlewares/validation.middleware';
 import AnswerService from '../../services/answer.service';
 import { OpenAPI } from 'routing-controllers-openapi';
