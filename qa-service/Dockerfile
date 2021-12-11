@@ -19,8 +19,8 @@ CMD ["npm", "run", "dev"]
 # Production build stage
 FROM common-build-stage as production-build-stage
 
-RUN npm install -g ts-node
+RUN npm run build
 
 ENV NODE_ENV production
 
-CMD ["npm", "run", "quick"]
+CMD ["npm", "run", "start"]
