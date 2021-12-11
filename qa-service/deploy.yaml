@@ -28,10 +28,10 @@ spec:
         securityContext:
           runAsNonRoot: true
           runAsUser: 10001
-          capabilities:
-            drop:
-              - all
-          readOnlyRootFilesystem: true
+          #capabilities:
+          #  drop:
+          #    - all
+          readOnlyRootFilesystem: false
         livenessProbe:
           httpGet:
             path: /
