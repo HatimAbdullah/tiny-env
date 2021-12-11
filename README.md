@@ -16,3 +16,5 @@ infrastructure as code using terraform is created under this directory to launch
 
 all the cluster related tools and resources are listed under this directory such as CI/CD
 # live env
+
+link to the live environment: http://3.109.182.245
