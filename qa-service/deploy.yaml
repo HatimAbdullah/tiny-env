@@ -49,6 +49,6 @@ spec:
           periodSeconds: 3
 
       volumes:
-        - name: config-volume
+      - name: config-volume
         configMap:
         name: qa-config
